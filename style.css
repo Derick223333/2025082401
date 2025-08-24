@@ -1,0 +1,302 @@
+
+:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 배경 애니메이션 */
+.floating-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-icon {
+  position: absolute;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.1);
+  animation: float 20s infinite;
+}
+
+.floating-icon:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-icon:nth-child(2) {
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.floating-icon:nth-child(3) {
+  left: 30%;
+  animation-delay: 4s;
+}
+
+.floating-icon:nth-child(4) {
+  left: 70%;
+  animation-delay: 6s;
+}
+
+.floating-icon:nth-child(5) {
+  left: 80%;
+  animation-delay: 8s;
+}
+
+.floating-icon:nth-child(6) {
+  left: 90%;
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* 카드 스타일링 */
+.modern-card {
+  border-radius: 20px !important;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95) !important;
+  z-index: 10;
+  position: relative;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+}
+
+.card-header {
+  border-radius: 20px 20px 0 0 !important;
+  border: none !important;
+}
+
+.card-footer {
+  border-radius: 0 0 20px 20px !important;
+  border: none !important;
+}
+
+/* 버튼 스타일링 */
+.draw-button {
+  background: linear-gradient(45deg, var(--success-color), #20c997) !important;
+  border: none !important;
+  border-radius: 15px !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.draw-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.draw-button:hover::before {
+  left: 100%;
+}
+
+.draw-button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 25px rgba(40, 167, 69, 0.4) !important;
+}
+
+.reset-button {
+  border-radius: 10px !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(23, 162, 184, 0.3);
+}
+
+/* 결과 컨테이너 */
+.result-container {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.result-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 번호 디스플레이 */
+.numbers-display {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.number-card {
+  background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+  color: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.number-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.number-card:hover::before {
+  animation: shimmer 1s ease-in-out;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(45deg) translateX(-100%); }
+  100% { transform: rotate(45deg) translateX(100%); }
+}
+
+.number-card.animate-in {
+  animation: bounceIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2) rotate(-10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* 로딩 스피너 */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .modern-card {
+    margin: 15px;
+  }
+  
+  .card-body {
+    padding: 2rem !important;
+  }
+  
+  .numbers-display {
+    gap: 15px;
+  }
+  
+  .number-card {
+    width: 65px;
+    height: 65px;
+    font-size: 1.5em;
+  }
+  
+  .floating-icon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .display-4 {
+    font-size: 2rem !important;
+  }
+  
+  .lead {
+    font-size: 1rem !important;
+  }
+  
+  .number-card {
+    width: 55px;
+    height: 55px;
+    font-size: 1.3em;
+  }
+}
+
+/* SweetAlert2 커스터마이징 */
+.swal2-popup {
+  border-radius: 20px !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.swal2-success .swal2-success-ring {
+  border-color: var(--success-color) !important;
+}
+
+.swal2-success .swal2-success-fix {
+  background-color: var(--success-color) !important;
+}

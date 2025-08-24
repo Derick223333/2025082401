@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>청소당번 뽑기</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <!-- Custom CSS -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="row w-100 justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-10">
+        <div class="card shadow-lg border-0 modern-card">
+          <div class="card-header text-center bg-gradient-primary text-white py-4">
+            <h1 class="display-4 mb-2">
+              <i class="fas fa-broom me-3"></i>청소당번 뽑기<i class="fas fa-broom ms-3"></i>
+            </h1>
+            <p class="lead mb-0">1번부터 25번 중 랜덤으로 5명을 선택합니다</p>
+          </div>
+          
+          <div class="card-body p-5">
+            <div class="text-center mb-4">
+              <button id="drawButton" class="btn btn-success btn-lg px-5 py-3 shadow-sm draw-button">
+                <i class="fas fa-dice me-2"></i>당번 뽑기!
+              </button>
+            </div>
+            
+            <div id="result" class="result-container">
+              <h3 class="text-center mb-4 text-primary">
+                <i class="fas fa-star me-2"></i>선택된 번호
+              </h3>
+              <div id="numbers" class="numbers-display"></div>
+              <div class="text-center mt-4">
+                <button id="resetButton" class="btn btn-outline-primary btn-lg px-4 py-2 reset-button" style="display: none;">
+                  <i class="fas fa-redo me-2"></i>다시 뽑기
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-footer text-center bg-light py-3">
+            <small class="text-muted">
+              <i class="fas fa-info-circle me-1"></i>
+              공정한 랜덤 선택으로 진행됩니다
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 배경 애니메이션 요소들 -->
+  <div class="floating-icons">
+    <i class="fas fa-broom floating-icon"></i>
+    <i class="fas fa-spray-can floating-icon"></i>
+    <i class="fas fa-trash floating-icon"></i>
+    <i class="fas fa-soap floating-icon"></i>
+    <i class="fas fa-sponge floating-icon"></i>
+    <i class="fas fa-bucket floating-icon"></i>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+
+</html>
